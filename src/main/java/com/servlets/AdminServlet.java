@@ -23,6 +23,7 @@ public class AdminServlet extends HttpServlet {
 		PrintWriter pw = res.getWriter();
 		res.setContentType("text/html");
 	
+		
 		String adUsername = req.getParameter("username");
 		String adPassword = req.getParameter("password");
 		
