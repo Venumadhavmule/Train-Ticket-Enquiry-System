@@ -4,6 +4,16 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<display-name>admin</display-name>
+		<description></description>
+		<servlet-class>com.servlets.AdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>Welcome.html</welcome-file>
 	</welcome-file-list>

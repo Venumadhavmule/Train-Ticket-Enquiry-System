@@ -8,21 +8,12 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class UserBean {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-	
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
@@ -52,6 +43,14 @@ public class UserBean {
 		this.email = email;
 		this.username = username;
 		this.password = password;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	// Getters and setters...
@@ -103,7 +102,7 @@ public class UserBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "UserBean [firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", email=" + email
