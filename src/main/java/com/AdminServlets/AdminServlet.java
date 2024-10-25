@@ -1,4 +1,4 @@
-package com.servlets;
+package com.AdminServlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,9 +35,11 @@ public class AdminServlet extends HttpServlet {
 		String uname = AdminDao.verifyAdmin(adUsername, adPassword);
 		
 		if(uname!=null) {
-			pw.println("<h2>Admin Verified Succesfully</h2>");
+//			pw.println("<h2>Admin Verified Succesfully</h2>");
+			res.sendRedirect("AHome.html");
 		}else {
-			pw.println("<h2>Admin credentials Wrong</h2>");
+//			pw.println("<h2>Admin credentials Wrong</h2>");
+			res.sendRedirect("Admin.html");
 		}
 		
 		pw.close();

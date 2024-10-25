@@ -9,7 +9,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import com.model.UserBean;
 
-public class HbConnBean{
+public class UHbConnBean{
 	static Configuration con = null;
 	static {
 		con = new Configuration().configure().addAnnotatedClass(UserBean.class);

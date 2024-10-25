@@ -8,11 +8,21 @@
 		<servlet-name>admin</servlet-name>
 		<display-name>admin</display-name>
 		<description></description>
-		<servlet-class>com.servlets.AdminServlet</servlet-class>
+		<servlet-class>com.AdminServlets.AdminServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>addTrain</servlet-name>
+		<display-name>addTrain</display-name>
+		<description></description>
+		<servlet-class>com.AdminServlets.AddTrainServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin</servlet-name>
 		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>addTrain</servlet-name>
+		<url-pattern>/addTrain</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>Welcome.html</welcome-file>

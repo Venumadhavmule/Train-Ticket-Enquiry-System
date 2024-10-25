@@ -1,4 +1,4 @@
-package com.servlets;
+package com.UserServlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,10 +32,10 @@ public class SignUpServlet extends HttpServlet {
         
         if (count == 0) {
             pw.println("<h2>User not registered! Please try again with a unique username.</h2>");
-            res.setHeader("Refresh", "2; URL=Signup.html");
+            res.setHeader("Refresh", "2; URL=USignup.html");
         } else {
             pw.println("<h2>User registration completed successfully! Redirecting to Login...</h2>");
-            res.setHeader("Refresh", "2; URL=Login.html");
+            res.setHeader("Refresh", "2; URL=ULogin.html");
         }
     }
 }

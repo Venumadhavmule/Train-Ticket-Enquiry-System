@@ -1,4 +1,4 @@
-package com.servlets;
+package com.UserServlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			// Invalid credentials, redirect back to login with an error message
 			pw.print("Invalid credentials, please try again.");
-			req.getRequestDispatcher("Login.html").include(req, res);
+			req.getRequestDispatcher("ULogin.html").include(req, res);
 		}
 
 		pw.close();

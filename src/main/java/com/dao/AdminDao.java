@@ -24,8 +24,8 @@ public class AdminDao {
 			e.printStackTrace();
 		} finally {
 			if (session != null) {
-                session.close();
-            }
+				session.close();
+			}
 		}
 	}
 
@@ -37,9 +37,10 @@ public class AdminDao {
 			session = AHbConnBean.getSession();
 			transaction = session.beginTransaction();
 
-			Query<AdminBean> query = session.createQuery("from AdminBean where adUsername = :username", AdminBean.class);
+			Query<AdminBean> query = session.createQuery("from AdminBean where adUsername = :username",
+					AdminBean.class);
 			query.setParameter("username", username);
-			
+
 			AdminBean admin = query.uniqueResult(); // Fetch unique result
 			transaction.commit();
 			if (admin != null && admin.getAdPasssword().equals(password)) {
@@ -53,8 +54,8 @@ public class AdminDao {
 
 		} finally {
 			if (session != null) {
-                session.close();
-            }
+				session.close();
+			}
 		}
 
 		return uname;

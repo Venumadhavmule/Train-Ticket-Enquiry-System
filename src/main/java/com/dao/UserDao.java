@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.model.UserBean;
-import com.utility.HbConnBean;
+import com.utility.UHbConnBean;
 
 public class UserDao {
 
@@ -17,7 +17,7 @@ public class UserDao {
 		int count = 0;
 		Session session = null;
 		try {
-			session = HbConnBean.getSession();
+			session = UHbConnBean.getSession();
 			transaction = session.beginTransaction();
 			count = (Integer) session.save(user);
 			transaction.commit();
@@ -37,7 +37,7 @@ public class UserDao {
 		List<UserBean> allUsers = null;
 		Session session = null;
 		try {
-			session = HbConnBean.getSession();
+			session = UHbConnBean.getSession();
 			transaction = session.beginTransaction();
 			allUsers = session.createQuery("from UserBean").list();
 			transaction.commit();
@@ -57,7 +57,7 @@ public class UserDao {
 		UserBean user = null;
 		Session session = null;
 		try {
-			session = HbConnBean.getSession();
+			session = UHbConnBean.getSession();
 			transaction = session.beginTransaction();
 			user = (UserBean) session.createQuery("from UserBean where username=:username")
 					.setParameter("username", username).uniqueResult();
@@ -76,7 +76,7 @@ public class UserDao {
 		Transaction transaction = null;
 		Session session = null;
 		try {
-			session = HbConnBean.getSession();
+			session = UHbConnBean.getSession();
 			transaction = session.beginTransaction();
 			session.saveOrUpdate(user);
 			transaction.commit();
@@ -94,7 +94,7 @@ public class UserDao {
 		UserBean user = null;
 		Session session = null;
 		try {
-			session = HbConnBean.getSession();
+			session = UHbConnBean.getSession();
 			transaction = session.beginTransaction();
 			user = session.get(UserBean.class, username);
 			session.delete(user);
@@ -114,7 +114,7 @@ public class UserDao {
 		Session session = null;
 
 		try {
-			session = HbConnBean.getSession(); // Assuming this method gets the Hibernate session
+			session = UHbConnBean.getSession(); // Assuming this method gets the Hibernate session
 			transaction = session.beginTransaction();
 
 			// Use named parameters to avoid potential SQL injection
