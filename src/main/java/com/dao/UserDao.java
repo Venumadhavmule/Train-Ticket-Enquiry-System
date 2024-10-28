@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -34,19 +35,25 @@ public class UserDao {
 	// Get All Users
 	public static List<UserBean> getAllUsers() {
 		Transaction transaction = null;
-		List<UserBean> allUsers = null;
+		List<UserBean> allUsers = new ArrayList<UserBean>();
 		Session session = null;
 		try {
 			session = UHbConnBean.getSession();
 			transaction = session.beginTransaction();
-			allUsers = session.createQuery("from UserBean").list();
+			Query<UserBean> hQ  = session.createQuery("from UserBean",UserBean.class);
+			allUsers = hQ.list();
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
+			 e.printStackTrace();
 		} finally {
 			session.close();
+		}
+		System.out.println("User list size: " + (allUsers != null ? allUsers.size() : "null"));
+		for (UserBean user : allUsers) {
+		    System.out.println(user);
 		}
 		return allUsers;
 	}
