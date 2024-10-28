@@ -28,6 +28,19 @@
 		<description></description>
 		<servlet-class>com.AdminServlets.AddAdminServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>updateUser</servlet-name>
+		<display-name>updateUser</display-name>
+		<description></description>
+		<servlet-class>com.AdminServlets.UpdateUserServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>deleteUser</servlet-name>
+		<display-name>deleteUser</display-name>
+		<description></description>
+		<servlet-class>com.AdminServlets.DeleteUserServlet</servlet-class>
+	</servlet>
+	
 
 	<servlet-mapping>
 		<servlet-name>addTrain</servlet-name>
@@ -40,6 +53,14 @@
 	<servlet-mapping>
 		<servlet-name>addAdmin</servlet-name>
 		<url-pattern>/addAdmin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>updateUser</servlet-name>
+		<url-pattern>/updateUser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>deleteUser</servlet-name>
+		<url-pattern>/deleteUser</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>Welcome.html</welcome-file>

@@ -35,7 +35,7 @@ public class SignUpServlet extends HttpServlet {
             res.setHeader("Refresh", "2; URL=USignup.html");
         } else {
             pw.println("<h2>User registration completed successfully! Redirecting to Login...</h2>");
-            res.setHeader("Refresh", "2; URL=ULogin.html");
+            res.setHeader("Refresh", "2; URL=Login.html");
         }
     }
 }

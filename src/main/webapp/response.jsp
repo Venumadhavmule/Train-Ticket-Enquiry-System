@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="Admin.css">
 </head>
 <body>
 	<h1>Welcome to the Train Ticket Booking Application!</h1>

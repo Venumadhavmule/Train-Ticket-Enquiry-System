@@ -40,20 +40,20 @@ public class UserDao {
 		try {
 			session = UHbConnBean.getSession();
 			transaction = session.beginTransaction();
-			Query<UserBean> hQ  = session.createQuery("from UserBean",UserBean.class);
+			Query<UserBean> hQ = session.createQuery("from UserBean", UserBean.class);
 			allUsers = hQ.list();
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
-			 e.printStackTrace();
+			e.printStackTrace();
 		} finally {
 			session.close();
 		}
 		System.out.println("User list size: " + (allUsers != null ? allUsers.size() : "null"));
 		for (UserBean user : allUsers) {
-		    System.out.println(user);
+			System.out.println(user);
 		}
 		return allUsers;
 	}
@@ -79,42 +79,86 @@ public class UserDao {
 	}
 
 	// Update User
-	public static void updateUser(UserBean user) {
-		Transaction transaction = null;
-		Session session = null;
-		try {
-			session = UHbConnBean.getSession();
-			transaction = session.beginTransaction();
-			session.saveOrUpdate(user);
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null)
-				transaction.rollback();
-		} finally {
-			session.close();
-		}
+	public static boolean updateUser(UserBean user) {
+	    Transaction transaction = null;
+	    Session session = null;
+	    boolean result = false;
+	    String username = user.getUsername();
+	    
+	    try {
+	        session = UHbConnBean.getSession();
+	        transaction = session.beginTransaction();
+	        
+	        // Fetch the existing user based on username
+	        UserBean existingUser = session.createQuery("from UserBean where username = :username", UserBean.class)
+	                                       .setParameter("username", user.getUsername())
+	                                       .uniqueResult();
+	        
+	        if (existingUser != null) {
+	            // Update existing user
+	            existingUser.setFirstName(user.getFirstName());
+	            existingUser.setLastName(user.getLastName());
+	            existingUser.setEmail(user.getEmail());
+	            existingUser.setPhone(user.getPhone());
+	            // Add other fields as necessary
+	            session.update(existingUser);
+	        } else {
+	            // Save new user
+	            session.save(user);
+	        }
+
+	        transaction.commit();
+	        result = true;
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        e.printStackTrace(); // Log the exception
+	    } finally {
+	        if (session != null) {
+	            session.close();
+	        }
+	    }
+	    
+	    return result;
 	}
 
 	// Delete User
-	public static void deleteUser(String username) {
+	public static boolean deleteUser(String username) {
 		Transaction transaction = null;
 		UserBean user = null;
 		Session session = null;
+		boolean result = false;
 		try {
 			session = UHbConnBean.getSession();
 			transaction = session.beginTransaction();
-			user = session.get(UserBean.class, username);
-			session.delete(user);
-			transaction.commit();
+
+			// Fetch the user based on the 'username' field
+			user = session.createQuery("from UserBean where username = :username", UserBean.class)
+					.setParameter("username", username).uniqueResult();
+
+			// Only delete if the user was found
+			if (user != null) {
+				session.delete(user);
+				transaction.commit();
+				result = true;
+			} else {
+				System.out.println("User not found with username: " + username);
+			}
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
+			e.printStackTrace();
 		} finally {
-			session.close();
+			if (session != null) {
+				session.close();
+			}
 		}
+		return result;
 	}
 
+	
 	public static String verifyUser(String username, String password) {
 		String usname = null;
 		Transaction transaction = null;

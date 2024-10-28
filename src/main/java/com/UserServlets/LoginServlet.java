@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 
 		if (uname != null) {
 			// User verified, redirect to a welcome page or dashboard
-			res.sendRedirect("logSuccess.jsp");
+			res.sendRedirect("response.jsp");
 		} else {
 			// Invalid credentials, redirect back to login with an error message
 			pw.print("Invalid credentials, please try again.");

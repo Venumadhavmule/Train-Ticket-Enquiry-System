@@ -2,38 +2,57 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>View All users</title>
-    <link rel="stylesheet" href="Admin.css">
+<meta charset="UTF-8">
+<title>Update User</title>
+<link rel="stylesheet" href="Admin.css">
 </head>
 
 <body>
-    <header>
-        <div class="hdt">
-            <div class="hd">
-                <img class="logo" src="railLogo.png" alt="Rail Logo" width="150px" height="200px">
-                <h1>Train Ticket Booking Spot</h1>
-            </div>
-        </div>
-    </header>
-    <br>
-    <form action="logout">
-        <div class="navv ">
-            <a href="AHome.html" title="Home">Home</a>
-            <a href="AAddTrain.html" title="Add train">Add Train</a>
-            <a href="/Train-Ticket-Reservation/usersList" title="View All Users">View All Users</a>
-            <a href="AUpdateUser.html" title="Update User">Update User</a>
-            <a href="ADeleteUser.html" title="Delete User">Delete User</a>
-            <a href="AAddAdmin.html" title="Add Admin">Add Admin</a>
-            <a href="AContactUs.html" title="Contact Us">Contact Us</a>
-            <button type="submit" title="logout">Logout</button>
-        </div>
-    </form>
-    <div class="marquee">
-        
-        </div>
-    </div>
+	<header>
+		<div class="hdt">
+			<div class="hd">
+				<img class="logo" src="railLogo.png" alt="Rail Logo" width="150px"
+					height="200px">
+				<h1>Train Ticket Booking Spot</h1>
+			</div>
+		</div>
+	</header>
+	<br>
+	<form action="logout">
+		<div class="navv ">
+			<a href="AHome.html" title="Home">Home</a> <a href="AAddTrain.html"
+				title="Add train">Add Train</a> <a
+				href="/Train-Ticket-Reservation/usersList" title="View All Users">View
+				All Users</a> <a href="AUpdateUser.html" title="Update User">Update
+				User</a> <a href="ADeleteUser.html" title="Delete User">Delete User</a>
+			<a href="AAddAdmin.html" title="Add Admin">Add Admin</a> <a
+				href="AContactUs.html" title="Contact Us">Contact Us</a>
+			<button type="submit" title="logout">Logout</button>
+		</div>
+	</form>
+	<div class="credd br">
+		<form action="updateUser" method="post">
+			<h1>
+				<span><u>Update</u> <u>User</u></span>
+			</h1>
 
+			<label for="firstname">First Name</label><br> <input type="text"
+				id="firstname" name="firstname" title="firstname" required><br>
+			<br> <label for="lastname">Last Name</label><br> <input
+				type="text" id="lastname" name="lastname" title="lastname" required><br>
+			<br> <label for="phone">Phone</label><br> <input type="tel"
+				id="phone" name="phone" title="phone" required><br> <br>
+			<label for="email">Email</label><br> <input type="email"
+				id="email" name="email" title="email" required><br> <br>
+			<label for="username">Username</label><br> <input type="text"
+				id="username" name="username" title="username" required><br>
+			<br> <label for="password">Password</label><br> <input
+				type="password" id="password" name="password" title="password"
+				required><br> <br>
+
+			<button type="submit">Update</button>
+		</form>
+	</div>
 </body>
 
 </html>

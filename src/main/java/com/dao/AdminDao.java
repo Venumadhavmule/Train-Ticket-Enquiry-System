@@ -9,15 +9,18 @@ import com.utility.AHbConnBean;
 
 public class AdminDao {
 
-	public static void saveAdmin(AdminBean admin) {
+	public static boolean saveAdmin(AdminBean admin) {
 		Transaction transaction = null;
 		Session session = null;
+		boolean result = false;
 		try {
 			session = AHbConnBean.getSession();
 			transaction = session.beginTransaction();
 			session.save(admin);
 			transaction.commit();
+			result =true;
 			System.out.println("Admin dataSaved Succesfully");
+			
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
@@ -29,6 +32,7 @@ public class AdminDao {
 				session.close();
 			}
 		}
+		return result;
 	}
 
 	public static String verifyAdmin(String username, String password) {

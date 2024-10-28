@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>View All users</title>
-    <link rel="stylesheet" href="Admin.css">
+<meta charset="UTF-8">
+<title>Delete User</title>
+<link rel="stylesheet" href="Admin.css">
 </head>
-
 <body>
-    <header>
-        <div class="hdt">
-            <div class="hd">
-                <img class="logo" src="railLogo.png" alt="Rail Logo" width="150px" height="200px">
-                <h1>Train Ticket Booking Spot</h1>
-            </div>
-        </div>
-    </header>
-    <br>
-    <form action="logout">
-        <div class="navv ">
-            <a href="AHome.html" title="Home">Home</a>
-            <a href="AAddTrain.html" title="Add train">Add Train</a>
-            <a href="/Train-Ticket-Reservation/usersList" title="View All Users">View All Users</a>
-            <a href="AUpdateUser.html" title="Update User">Update User</a>
-            <a href="ADeleteUser.html" title="Delete User">Delete User</a>
-            <a href="AAddAdmin.html" title="Add Admin">Add Admin</a>
-            <a href="AContactUs.html" title="Contact Us">Contact Us</a>
-            <button type="submit" title="logout">Logout</button>
-        </div>
-    </form>
-    <div class="marquee">
-        
-        </div>
-    </div>
+<header>
+		<div class="hdt">
+			<div class="hd">
+				<img class="logo" src="railLogo.png" alt="Rail Logo" width="150px"
+					height="200px">
+				<h1>Train Ticket Booking Spot</h1>
+			</div>
+		</div>
+	</header>
+	<br>
+	<form action="logout">
+		<div class="navv ">
+			<a href="AHome.html" title="Home">Home</a> <a href="AAddTrain.html"
+				title="Add train">Add Train</a> <a
+				href="/Train-Ticket-Reservation/usersList" title="View All Users">View
+				All Users</a> <a href="AUpdateUser.html" title="Update User">Update
+				User</a> <a href="ADeleteUser.html" title="Delete User">Delete User</a>
+			<a href="AAddAdmin.html" title="Add Admin">Add Admin</a> <a
+				href="AContactUs.html" title="Contact Us">Contact Us</a>
+			<button type="submit" title="logout">Logout</button>
+		</div>
+	</form>
+	<div class="credd br">
+		<form action="deleteUser">
+			<h1>
+				<span><u>Delete</u> <u>User</u></span>
+			</h1>
 
+			<label for="username">Username</label><br> <input type="text"
+				id="username" name="username" title="username" required><br><br>
+			<button type="submit">Delete</button>
+		</form>
+	</div>
 </body>
-
 </html>
