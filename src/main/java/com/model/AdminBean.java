@@ -25,6 +25,18 @@ public class AdminBean {
 
 	@Column(name = "password", nullable = false)
 	private String adPasssword;
+	
+	
+	public AdminBean() {
+	}
+
+	public AdminBean(String adName, String adPhone, String adEmail, String adUsername, String adPasssword) {
+		this.adName = adName;
+		this.adPhone = adPhone;
+		this.adEmail = adEmail;
+		this.adUsername = adUsername;
+		this.adPasssword = adPasssword;
+	}
 
 	public String getAdName() {
 		return adName;

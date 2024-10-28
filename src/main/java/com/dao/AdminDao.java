@@ -17,9 +17,11 @@ public class AdminDao {
 			transaction = session.beginTransaction();
 			session.save(admin);
 			transaction.commit();
+			System.out.println("Admin dataSaved Succesfully");
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
+				System.out.println("Admin data not Saved");
 			}
 			e.printStackTrace();
 		} finally {
