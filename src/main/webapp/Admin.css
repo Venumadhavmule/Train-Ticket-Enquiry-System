@@ -20,7 +20,7 @@ body marquee{
     background-color: #ffffcc;
     padding: 2px; /* Further reduced padding */
     border-radius: 10px;
-    max-width: 70%; /* Can adjust this if needed */
+    max-width: 80%; /* Can adjust this if needed */
     margin: 0 auto;
     text-align: center;
     height: 120px; /* Reduced height for a smaller box */
