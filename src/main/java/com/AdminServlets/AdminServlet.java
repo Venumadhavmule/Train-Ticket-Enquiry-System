@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class AdminServlet
@@ -35,10 +36,10 @@ public class AdminServlet extends HttpServlet {
 		String uname = AdminDao.verifyAdmin(adUsername, adPassword);
 		
 		if(uname!=null) {
-//			pw.println("<h2>Admin Verified Succesfully</h2>");
-			res.sendRedirect("AHome.html");
+			HttpSession session= req.getSession();
+			session.setAttribute("username", uname);
+			res.sendRedirect("AHome.jsp");
 		}else {
-//			pw.println("<h2>Admin credentials Wrong</h2>");
 			res.sendRedirect("Admin.html");
 		}
 		

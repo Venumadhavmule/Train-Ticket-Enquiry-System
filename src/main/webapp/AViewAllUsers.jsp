@@ -10,63 +10,71 @@
 <link rel="stylesheet" href="Admin.css">
 <style type="text/css">
 h2 {
-    color: #cc0066;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    background-color: rgba(255, 255, 204, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    width: 50%;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+	color: #cc0066;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	background-color: rgba(255, 255, 204, 0.8);
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	width: 50%;
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 table {
-    width: 67%;
-    margin: 30px auto;
-    border-collapse: collapse;
-    background-color: #F9F9F9;
-    border-radius: 12px;
-    overflow: hidden;
-    font-size: 14px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	width: 67%;
+	margin: 30px auto;
+	border-collapse: collapse;
+	background-color: #F9F9F9;
+	border-radius: 12px;
+	overflow: hidden;
+	font-size: 14px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    padding: 12px 15px;
-    text-align: left;
-    color: #4B4B4B;
-    border-bottom: 1px solid #E3E3E3;
+	padding: 12px 15px;
+	text-align: left;
+	color: #4B4B4B;
+	border-bottom: 1px solid #E3E3E3;
 }
 
 th {
-    background-color: #3A8FB7;
-    color: #FFFFFF;
-    font-weight: bold;
-    font-size: 16px;
+	background-color: #3A8FB7;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 16px;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #EDF2F4;
+	background-color: #EDF2F4;
 }
 
 tbody tr:hover {
-    background-color: #D3E1E8;
-    cursor: pointer;
+	background-color: #D3E1E8;
+	cursor: pointer;
 }
 
 tbody tr:last-child td {
-    border-bottom: none;
+	border-bottom: none;
 }
-
 </style>
 </head>
 <body>
+	<%
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
+	response.setHeader("Pragma", "no-cache"); //HTTP 1.0
+	response.setHeader("Expires", "0"); //Proxies
+
+	if (session.getAttribute("username") == null) {
+		response.sendRedirect("Admin.html");
+	}
+	%>
 	<header>
 		<div class="hdt">
 			<div class="hd">
@@ -77,7 +85,7 @@ tbody tr:last-child td {
 		</div>
 	</header>
 	<br>
-	<form action="logout">
+	<form action="aLogout">
 		<div class="navv ">
 			<a href="AHome.html" title="Home">Home</a> <a href="AAddTrain.html"
 				title="Add train">Add Train</a> <a
