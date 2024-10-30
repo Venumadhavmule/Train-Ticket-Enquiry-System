@@ -24,21 +24,17 @@ public class LoginServlet extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 
-		if (username == null || password == null) {
-			pw.print("Please provide both username and password.");
-			return;
-		}
-
+		
 		// Verify user credentials using UserDao
 		String uname = UserDao.verifyUser(username, password);
 
 		if (uname != null) {
-			// User verified, redirect to a welcome page or dashboard
-			res.sendRedirect("response.jsp");
+			pw.println("<h2>User Verfied Successfully. Redirecting to Home...!</h2>");
+            res.sendRedirect("UHome.html");
 		} else {
 			// Invalid credentials, redirect back to login with an error message
 			pw.print("Invalid credentials, please try again.");
-			req.getRequestDispatcher("ULogin.html").include(req, res);
+			res.sendRedirect("Login.html");
 		}
 
 		pw.close();

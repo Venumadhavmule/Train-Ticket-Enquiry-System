@@ -52,6 +52,12 @@
 		<description></description>
 		<servlet-class>com.AdminServlets.LogoutServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>alltrains</servlet-name>
+		<display-name>alltrains</display-name>
+		<description></description>
+		<servlet-class>com.UserServlets.AvailableTrains</servlet-class>
+	</servlet>
 	
 
 	<servlet-mapping>
@@ -81,6 +87,10 @@
 	<servlet-mapping>
 		<servlet-name>aLogout</servlet-name>
 		<url-pattern>/aLogout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>alltrains</servlet-name>
+		<url-pattern>/alltrains</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>Welcome.html</welcome-file>

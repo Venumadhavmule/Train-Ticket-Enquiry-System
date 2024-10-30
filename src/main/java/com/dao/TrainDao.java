@@ -1,5 +1,8 @@
 package com.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -24,4 +27,27 @@ public class TrainDao {
 		}
 		return count;
 	}
+
+	
+	public static List<TrainBean> getAllTrains(){
+		Transaction transaction = null;
+		Session session =null;
+		List<TrainBean> trains = new ArrayList<TrainBean>();
+		try {
+			session = THbConnectionBean.getSession();
+			transaction = session.beginTransaction();
+			trains = session.createQuery("from train",TrainBean.class).list();
+			transaction.commit();
+		}catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		}finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
+		
+		return trains;
+	}
+
 }
