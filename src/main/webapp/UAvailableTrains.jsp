@@ -66,6 +66,15 @@ tbody tr:last-child td {
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
+	response.setHeader("Pragma", "no-cache"); //HTTP 1.0
+	response.setHeader("Expires", "0"); //Proxies
+	
+	if (session.getAttribute("username") == null) {
+		response.sendRedirect("Login.html");
+	}
+	%>
 	<header>
 		<div class="hdt">
 			<div class="hd">
@@ -78,12 +87,12 @@ tbody tr:last-child td {
 	<br>
 	<form action="logout">
         <div class="navv ">
-            <a href="UHome.html" title="Home">Home</a>
+            <a href="UHome.jsp" title="Home">Home</a>
             <a href="/Train-Ticket-Reservation/alltrains" title="Available Trains">Available Trains</a>
-            <a href="UFareEnquiry.html" title="Fare Enquiry">Fare Enquiry</a>
-            <a href="UGallery.html" title="Gallery">Gallery</a>
-            <a href="UContactUs.html" title="Contact Us">Contact Us</a>
-            <a href="UProfile.html" title="Profile">Profile</a>
+            <a href="UFareEnquiry.jsp" title="Fare Enquiry">Fare Enquiry</a>
+            <a href="UGallery.jsp" title="Gallery">Gallery</a>
+            <a href="UContactUs.jsp" title="Contact Us">Contact Us</a>
+            <a href="UProfile.jsp" title="Profile">Profile</a>
             <button type="submit" title="Logout">Logout</button>
         </div>
     </form>

@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 			// pw.println("<h2>User Verfied Successfully. Redirecting to Home...!</h2>");
 			HttpSession session = req.getSession();
 			session.setAttribute("username", uname);
-			res.sendRedirect("UHome.html");
+			res.sendRedirect("UHome.jsp");
 		} else {
 //			Invalid credentials, redirect back to login with an error message
 //         pw.print("Invalid credentials, please try again.");
