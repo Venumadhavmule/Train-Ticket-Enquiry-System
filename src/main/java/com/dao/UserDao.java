@@ -83,7 +83,7 @@ public class UserDao {
 	    Transaction transaction = null;
 	    Session session = null;
 	    boolean result = false;
-	    String username = user.getUsername();
+	    String username = (String) user.getUsername();
 	    
 	    try {
 	        session = UHbConnBean.getSession();
@@ -91,7 +91,7 @@ public class UserDao {
 	        
 	        // Fetch the existing user based on username
 	        UserBean existingUser = session.createQuery("from UserBean where username = :username", UserBean.class)
-	                                       .setParameter("username", user.getUsername())
+	                                       .setParameter("username", username)
 	                                       .uniqueResult();
 	        
 	        if (existingUser != null) {
@@ -100,11 +100,13 @@ public class UserDao {
 	            existingUser.setLastName(user.getLastName());
 	            existingUser.setEmail(user.getEmail());
 	            existingUser.setPhone(user.getPhone());
-	            // Add other fields as necessary
-	            session.update(existingUser);
+	            existingUser.setPassword(user.getPassword());
+	            //save the updated user
+	            session.save(existingUser);
+	            result =true;
 	        } else {
 	            // Save new user
-	            session.save(user);
+	            session.save(existingUser);
 	        }
 
 	        transaction.commit();

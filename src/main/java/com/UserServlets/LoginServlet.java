@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.dao.UserDao;
+import com.model.UserBean;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -32,6 +33,9 @@ public class LoginServlet extends HttpServlet {
 			// pw.println("<h2>User Verfied Successfully. Redirecting to Home...!</h2>");
 			HttpSession session = req.getSession();
 			session.setAttribute("username", uname);
+			
+			UserBean user = UserDao.getUserByUserName(uname);
+			session.setAttribute("aUser", user);
 			res.sendRedirect("UHome.jsp");
 		} else {
 //			Invalid credentials, redirect back to login with an error message

@@ -14,6 +14,7 @@
 	
 	if (session.getAttribute("username") == null) {
 		response.sendRedirect("Login.html");
+		return;
 	}
 	%>
 	<%@ include file="UGallery.html" %>

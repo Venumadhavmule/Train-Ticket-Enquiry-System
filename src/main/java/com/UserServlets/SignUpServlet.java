@@ -26,7 +26,6 @@ public class SignUpServlet extends HttpServlet {
         String email = req.getParameter("email");
         String uname = req.getParameter("username");
         String pswd = req.getParameter("password");
-
         UserBean user = new UserBean(fname, lname, phone, email, uname, pswd);
         int count = UserDao.saveUser(user);
         
