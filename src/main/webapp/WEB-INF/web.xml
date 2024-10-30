@@ -41,12 +41,6 @@
 		<servlet-class>com.AdminServlets.DeleteUserServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>logout</servlet-name>
-		<display-name>logout</display-name>
-		<description></description>
-		<servlet-class>com.LogoutServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>aLogout</servlet-name>
 		<display-name>aLogout</display-name>
 		<description></description>
@@ -57,6 +51,18 @@
 		<display-name>alltrains</display-name>
 		<description></description>
 		<servlet-class>com.UserServlets.AvailableTrains</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<display-name>login</display-name>
+		<description></description>
+		<servlet-class>com.UserServlets.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<display-name>logout</display-name>
+		<description></description>
+		<servlet-class>com.UserServlets.UserLogout</servlet-class>
 	</servlet>
 	
 
@@ -81,16 +87,20 @@
 		<url-pattern>/deleteUser</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>logout</servlet-name>
-		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>aLogout</servlet-name>
 		<url-pattern>/aLogout</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>alltrains</servlet-name>
 		<url-pattern>/alltrains</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>Welcome.html</welcome-file>

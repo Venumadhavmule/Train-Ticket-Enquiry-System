@@ -10,8 +10,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/login")
+@WebServlet(name = "login", urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -24,16 +25,17 @@ public class LoginServlet extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 
-		
 		// Verify user credentials using UserDao
 		String uname = UserDao.verifyUser(username, password);
 
 		if (uname != null) {
-			pw.println("<h2>User Verfied Successfully. Redirecting to Home...!</h2>");
-            res.sendRedirect("UHome.html");
+			// pw.println("<h2>User Verfied Successfully. Redirecting to Home...!</h2>");
+			HttpSession session = req.getSession();
+			session.setAttribute("username", uname);
+			res.sendRedirect("UHome.html");
 		} else {
-			// Invalid credentials, redirect back to login with an error message
-			pw.print("Invalid credentials, please try again.");
+//			Invalid credentials, redirect back to login with an error message
+//         pw.print("Invalid credentials, please try again.");
 			res.sendRedirect("Login.html");
 		}
 
