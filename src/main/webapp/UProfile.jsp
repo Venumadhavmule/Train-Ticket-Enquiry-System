@@ -16,6 +16,7 @@
 	
 	if (session.getAttribute("username") == null) {
 		response.sendRedirect("Login.html");
+		return;
 	}
 	UserBean user = (UserBean) session.getAttribute("aUser");
 	%>
@@ -39,9 +40,9 @@
             <button type="submit" title="Logout">Logout</button>
         </div>
     </form><br>
-    <div class="credd-extension">
+    <div class="credd-extension" style="background-color: #FFFAE6;padding: 10px">
         <div class="profile-data">
-            <h1><span><u>User</u> <u>Profile</u></span></h1>
+            <h1>User</u> <u>Profile</u></h1>
             <table class="vertical-table">
         <tr>
             <th>First Name</th>

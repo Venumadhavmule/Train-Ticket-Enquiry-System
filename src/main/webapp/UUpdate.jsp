@@ -40,7 +40,7 @@
             <button type="submit" title="Logout">Logout</button>
         </div>
     </form>
-    <div class="credd br">
+    <div class="credd-extension">
         <form action="uProfileUp" method="post">
             <h1><span><u>Update</u> <u>Details</u></span></h1>
 
@@ -56,7 +56,7 @@
             <label for="email">Email</label><br>
             <input type="email" id="email" name="email" title="email" value="<%= user.getEmail() %>" required><br><br>
 
-            <label for="username">Username</label><br><p style="color: red;font-size: 14px">*use your username only..</p>
+            <label for="username">Username</label><br>
             <input type="text" id="username" name="username" title="username"  value="<%= user.getUsername() %>" required><br><br>
 
             <label for="password">Password</label><br>
