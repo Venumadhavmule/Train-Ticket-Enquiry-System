@@ -16,5 +16,6 @@
 		response.sendRedirect("Login.html");
 	}
 	%>
+	<%@ include file="UGallery.html" %>
 </body>
 </html>

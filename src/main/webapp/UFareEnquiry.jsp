@@ -16,5 +16,6 @@
 		response.sendRedirect("Login.html");
 	}
 	%>
+	<%@ include file="UFareEnquiry.html" %>
 </body>
 </html>

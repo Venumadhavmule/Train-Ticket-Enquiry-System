@@ -16,6 +16,6 @@
 		response.sendRedirect("Login.html");
 	}
 	%>
-	
+	<%@ include file="UContactUs.html" %>
 </body>
 </html>
