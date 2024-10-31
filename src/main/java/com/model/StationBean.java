@@ -18,6 +18,11 @@ public class StationBean {
 	
 	@Column(name = "station", nullable = false, unique = true)
 	private String station;
+	
+	
+
+	public StationBean() {
+	}
 
 	public StationBean(String station) {
 		this.station = station;
@@ -30,5 +35,11 @@ public class StationBean {
 	public void setStation(String station) {
 		this.station = station;
 	}
+
+	@Override
+	public String toString() {
+		return "StationBean [id=" + id + ", station=" + station + "]";
+	}
+	
 	
 }

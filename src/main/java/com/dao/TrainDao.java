@@ -49,5 +49,29 @@ public class TrainDao {
 		
 		return trains;
 	}
+	
+	public static TrainBean getFromToTrain(String from, String to) {
+		Transaction transaction = null;
+		Session session = null;
+		TrainBean fromToTrains = new TrainBean();
+		try {
+			session = THbConnectionBean.getSession();
+			transaction = session.beginTransaction();
+			fromToTrains = session.createQuery("from train where trainFrom=:from and trainTo=:to", TrainBean.class)
+					.setParameter("from", from)
+		            .setParameter("to", to)
+		            .uniqueResult();
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return fromToTrains;
+	}
 
 }

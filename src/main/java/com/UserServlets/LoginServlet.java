@@ -2,8 +2,11 @@ package com.UserServlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
+import com.dao.StationDao;
 import com.dao.UserDao;
+import com.model.StationBean;
 import com.model.UserBean;
 
 import jakarta.servlet.ServletException;
@@ -28,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 
 		// Verify user credentials using UserDao
 		String uname = UserDao.verifyUser(username, password);
+		List<StationBean> stationsList = StationDao.getAllStations();
 
 		if (uname != null) {
 			// pw.println("<h2>User Verfied Successfully. Redirecting to Home...!</h2>");
@@ -36,6 +40,7 @@ public class LoginServlet extends HttpServlet {
 			
 			UserBean user = UserDao.getUserByUserName(uname);
 			session.setAttribute("aUser", user);
+			session.setAttribute("allStations", stationsList);
 			res.sendRedirect("UHome.jsp");
 		} else {
 //			Invalid credentials, redirect back to login with an error message

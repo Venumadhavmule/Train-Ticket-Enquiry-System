@@ -29,7 +29,7 @@
         </div>
     </header>
     <br>
-    <form action="uLogout">
+    <form action="logout">
         <div class="navv ">
             <a href="UHome.jsp" title="Home">Home</a>
             <a href="/Train-Ticket-Reservation/alltrains" title="Available Trains">Available Trains</a>
