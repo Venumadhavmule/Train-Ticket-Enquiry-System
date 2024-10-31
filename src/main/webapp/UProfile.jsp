@@ -42,7 +42,7 @@
     </form><br>
     <div class="credd-extension" style="background-color: #FFFAE6;padding: 10px">
         <div class="profile-data">
-            <h1>User</u> <u>Profile</u></h1>
+            <h1><%= user.getFirstName() %>👋👋</h1>
             <table class="vertical-table">
         <tr>
             <th>First Name</th>

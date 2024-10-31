@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "uProfileUp", urlPatterns = { "/uProfileUp" })
 public class UUpdateServlet extends HttpServlet {
@@ -31,6 +32,8 @@ public class UUpdateServlet extends HttpServlet {
             pw.println("<h2>User profile not updated! Please try again with a own username...</h2>");
             resp.setHeader("Refresh", "2; URL=UUpdate.jsp");
         } else {
+        	HttpSession session = req.getSession();
+        	session.setAttribute("aUser", user);
             pw.println("<h2>User Profile data updated successfully! you will see updates in next time login...</h2>");
             resp.setHeader("Refresh", "2; URL=UProfile.jsp");
         }
