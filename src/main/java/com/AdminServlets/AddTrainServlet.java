@@ -25,13 +25,14 @@ public class AddTrainServlet extends HttpServlet {
 		String tname = request.getParameter("trainname");
 		String from  = request.getParameter("from");
 		String to = request.getParameter("to");
+		String km = request.getParameter("km");
 		
-		TrainBean train = new TrainBean(tno,tname,from,to);
+		TrainBean train = new TrainBean(tno,tname,from,to,km);
 		
 		int count = TrainDao.addTrain(train);
 		if (count==0) {
             pw.println("<h2>Train not updated! Please try again to add...</h2>");
-            response.setHeader("Refresh", "2; URL=AAddTrain.html");
+            response.setHeader("Refresh", "2; URL=AAddTrain.jsp");
         } else {
             pw.println("<h2>Train updated successfully! Redirecting to Home Page...</h2>");
             response.setHeader("Refresh", "2; URL=AHome.html");

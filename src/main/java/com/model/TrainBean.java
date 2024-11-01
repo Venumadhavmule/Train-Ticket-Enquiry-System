@@ -10,16 +10,18 @@ public class TrainBean {
 	private String trainName;
 	private String trainFrom;
 	private String trainTo;
+	private String km;
 
+	
 	public TrainBean() {
-
 	}
 
-	public TrainBean(int trainNo, String trainName, String trainFrom, String trainTo) {
+	public TrainBean(int trainNo, String trainName, String trainFrom, String trainTo, String km) {
 		this.trainNo = trainNo;
 		this.trainName = trainName;
 		this.trainFrom = trainFrom;
 		this.trainTo = trainTo;
+		this.km = km;
 	}
 
 	public int getTrainNo() {
@@ -52,6 +54,14 @@ public class TrainBean {
 
 	public void setTrainTo(String trainTo) {
 		this.trainTo = trainTo;
+	}
+	
+	public String getKm() {
+		return km;
+	}
+
+	public void setKm(String km) {
+		this.km = km;
 	}
 
 }

@@ -2,8 +2,11 @@ package com.AdminServlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import com.dao.AdminDao;
+import com.dao.StationDao;
+import com.model.StationBean;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -38,6 +41,8 @@ public class AdminServlet extends HttpServlet {
 		if(uname!=null) {
 			HttpSession session= req.getSession();
 			session.setAttribute("username", uname);
+			List<StationBean> allStations = StationDao.getAllStations();
+			session.setAttribute("allStations", allStations);
 			res.sendRedirect("AHome.jsp");
 		}else {
 			res.sendRedirect("Admin.html");

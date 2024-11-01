@@ -73,7 +73,7 @@
             <td style="color: red"><%= request.getAttribute("fare") %></td>
         </tr>
     </table><br>
-            <a href="UFareEnquire.jsp">
+            <a href="UFareEnquiry.jsp">
               <button type="button">Enquire New</button>
             </a>
         </div>

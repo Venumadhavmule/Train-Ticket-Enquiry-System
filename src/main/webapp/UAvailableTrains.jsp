@@ -115,13 +115,14 @@ tbody tr:last-child td {
 			<td><%=train.getTrainName()%></td>
 			<td><%=train.getTrainFrom()%></td>
 			<td><%=train.getTrainTo()%></td>
+			<td><%=train.getKm()%>Km</td>
 		</tr>
 		<%
 		}
 		} else {
 		%>
 		<tr>
-			<td colspan="5">There is no available trains</td>
+			<td colspan="6">There is no available trains</td>
 		</tr>
 		<%
 		}

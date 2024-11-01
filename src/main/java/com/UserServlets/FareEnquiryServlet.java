@@ -35,7 +35,8 @@ public class FareEnquiryServlet extends HttpServlet {
 		if(!from.equals(to)) {
 			TrainBean availableTrain = TrainDao.getFromToTrain(from, to);
 			if(availableTrain!=null) {
-				double fare = FareCalculator.calculateFare(coach,age,numPassengers,20);
+				int km = (Integer.parseInt(availableTrain.getKm()));
+				double fare = FareCalculator.calculateFare(coach,age,numPassengers,km);
 
 				System.out.println("fare: "+fare);
 				request.setAttribute("fare", fare);
