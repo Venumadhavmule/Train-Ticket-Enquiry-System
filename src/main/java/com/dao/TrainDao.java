@@ -10,7 +10,7 @@ import com.model.TrainBean;
 import com.utility.THbConnectionBean;
 
 public class TrainDao {
-	
+
 	public static int addTrain(TrainBean train) {
 		Session session = null;
 		Transaction transaction = null;
@@ -28,28 +28,27 @@ public class TrainDao {
 		return count;
 	}
 
-	
-	public static List<TrainBean> getAllTrains(){
+	public static List<TrainBean> getAllTrains() {
 		Transaction transaction = null;
-		Session session =null;
+		Session session = null;
 		List<TrainBean> trains = new ArrayList<TrainBean>();
 		try {
 			session = THbConnectionBean.getSession();
 			transaction = session.beginTransaction();
-			trains = session.createQuery("from train",TrainBean.class).list();
+			trains = session.createQuery("from train", TrainBean.class).list();
 			transaction.commit();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
-		}finally {
-			if(session!=null) {
+		} finally {
+			if (session != null) {
 				session.close();
 			}
 		}
-		
+
 		return trains;
 	}
-	
+
 	public static TrainBean getFromToTrain(String from, String to) {
 		Transaction transaction = null;
 		Session session = null;
@@ -58,9 +57,7 @@ public class TrainDao {
 			session = THbConnectionBean.getSession();
 			transaction = session.beginTransaction();
 			fromToTrains = session.createQuery("from train where trainFrom=:from and trainTo=:to", TrainBean.class)
-					.setParameter("from", from)
-		            .setParameter("to", to)
-		            .uniqueResult();
+					.setParameter("from", from).setParameter("to", to).uniqueResult();
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
@@ -73,5 +70,41 @@ public class TrainDao {
 		}
 		return fromToTrains;
 	}
+
+	public static boolean deleteTrain(int trainno) {
+	    Transaction transaction = null;
+	    Session session = null;
+	    boolean result = false;
+
+	    try {
+	        session = THbConnectionBean.getSession();
+	        transaction = session.beginTransaction();
+
+	        
+	        TrainBean train = session.createQuery("FROM train WHERE trainNo = :trainno", TrainBean.class)
+	                                 .setParameter("trainno", trainno)
+	                                 .uniqueResult(); 
+
+	        if (train != null) {
+	            session.delete(train); 
+	            transaction.commit(); 
+	            result = true; 
+	        } else {
+	            System.out.println("Train not found with train no: " + trainno);
+	        }
+
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback(); 
+	        }
+	        e.printStackTrace();
+	    } finally {
+	        if (session != null) {
+	            session.close(); 
+	        }
+	    }
+	    return result; 
+	}
+
 
 }

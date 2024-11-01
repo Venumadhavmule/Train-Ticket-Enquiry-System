@@ -17,6 +17,7 @@
 
 	if (session.getAttribute("username") == null) {
 		response.sendRedirect("Admin.html");
+		return;
 	}
 	List<StationBean> allStations = (List<StationBean>)session.getAttribute("allStations");
 	%>
@@ -85,7 +86,9 @@
         
         <label for="km">Km</label>
         <input type="number" id="km" name="km" min="20" max="5000" required>
-        <button type="submit">Add Train</button>
+        <button type="submit">Add Train</button><br><br>
+        <a href="/Train-Ticket-Reservation/aalltrains">View All trains</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="ADeleteTrain.jsp" style="color: red">Delete train</a>
     </form>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<%@page import="com.model.UserBean"%>
+<%@page import="com.model.TrainBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>All Users</title>
+<title>Available Trains</title>
 <link rel="stylesheet" href="Admin.css">
 <style type="text/css">
 h2 {
@@ -66,13 +66,14 @@ tbody tr:last-child td {
 </style>
 </head>
 <body>
-	<%
+<%
 	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
 	response.setHeader("Pragma", "no-cache"); //HTTP 1.0
 	response.setHeader("Expires", "0"); //Proxies
-
+	
 	if (session.getAttribute("username") == null) {
 		response.sendRedirect("Admin.html");
+		return;
 	}
 	%>
 	<header>
@@ -86,48 +87,52 @@ tbody tr:last-child td {
 	</header>
 	<br>
 	<form action="aLogout">
-		<div class="navv ">
-			<a href="AHome.html" title="Home">Home</a> <a href="AAddTrain.jsp"
-				title="Add train">Add Train</a> <a
-				href="/Train-Ticket-Reservation/usersList" title="View All Users">View
-				All Users</a> <a href="AUpdateUser.html" title="Update User">Update
-				User</a> <a href="ADeleteUser.html" title="Delete User">Delete User</a>
-			<a href="AAddAdmin.html" title="Add Admin">Add Admin</a> <a
-				href="AContactUs.html" title="Contact Us">Contact Us</a>
-			<button type="submit" title="logout">Logout</button>
-		</div>
-	</form>
-	<h2>All Users Data</h2>
+        <div class="navv ">
+            <a href="AHome.jsp" title="Home">Home</a>
+            <a href="AAddTrain.jsp" title="Add train">Add Train</a>
+            <a href="/Train-Ticket-Reservation/usersList" title="View All Users">View All Users</a>
+            <a href="AUpdateUser.jsp" title="Update User">Update User</a>
+            <a href="ADeleteUser.jsp" title="Delete User">Delete User</a>
+            <a href="AAddAdmin.jsp" title="Add Admin">Add Admin</a>
+            <a href="AContactUs.jsp" title="Contact Us">Contact Us</a>
+            <button type="submit" title="logout">Logout</button>
+        </div>
+    </form>
+	<h2>Available Trains</h2>
 	<table class="styled-table">
 		<tr>
-			<th>Firstname</th>
-			<th>Lastname</th>
-			<th>Phone</th>
-			<th>Email</th>
-			<th>Username</th>
-			<th>Password</th>
+			<th>Train no</th>
+			<th>Train name</th>
+			<th>From</th>
+			<th>To</th>
+			<th>Km</th>
 		</tr>
 		<%
-            List<com.model.UserBean> users = (List<com.model.UserBean>) request.getAttribute("users");
-            if (users != null && !users.isEmpty()) {
-                for (UserBean user : users) {
-        %>
+		List<TrainBean> trains = (List<TrainBean>) request.getAttribute("trains");
+		if (trains != null && !trains.isEmpty()) {
+			for (TrainBean train : trains) {
+		%>
 		<tr>
-			<td><%= user.getFirstName() %></td>
-			<td><%= user.getLastName() %></td>
-			<td><%= user.getPhone() %></td>
-			<td><%= user.getEmail() %></td>
-			<td><%= user.getUsername() %></td>
-			<td><%= user.getPassword() %></td>
+			<td><%=train.getTrainNo()%></td>
+			<td><%=train.getTrainName()%></td>
+			<td><%=train.getTrainFrom()%></td>
+			<td><%=train.getTrainTo()%></td>
+			<td><%=train.getKm()%>Km</td>
 		</tr>
 		<%
-                }
-            } else {
-        %>
+		}
+		} else {
+		%>
 		<tr>
-			<td colspan="6">No users found</td>
+			<td colspan="6">There is no available trains</td>
 		</tr>
-		<% } %>
+		<%
+		}
+		%>
 	</table>
+	<div class="button-container">
+	<button type="submit"  onclick="location.href='AAddTrain.jsp'" style="background-color: green" >Add Train</button>
+	<button type="submit"  onclick="location.href='ADeleteTrain.html'" style="background-color: red"  >Delete Train</button>
+	</div>
 </body>
 </html>

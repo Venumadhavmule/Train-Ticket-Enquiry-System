@@ -76,6 +76,18 @@
 		<description></description>
 		<servlet-class>com.UserServlets.FareEnquiryServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AAvailableTrainsServlet</servlet-name>
+		<display-name>AAvailableTrainsServlet</display-name>
+		<description>aalltrains</description>
+		<servlet-class>com.AdminServlets.AAvailableTrainsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>deleteTrain</servlet-name>
+		<display-name>deleteTrain</display-name>
+		<description></description>
+		<servlet-class>com.AdminServlets.DeleteTrainServlet</servlet-class>
+	</servlet>
 	
 
 	<servlet-mapping>
@@ -121,6 +133,14 @@
 	<servlet-mapping>
 		<servlet-name>fareEnq</servlet-name>
 		<url-pattern>/fareEnq</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AAvailableTrainsServlet</servlet-name>
+		<url-pattern>/AAvailableTrainsServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>deleteTrain</servlet-name>
+		<url-pattern>/deleteTrain</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>Welcome.html</welcome-file>

@@ -283,3 +283,25 @@ body marquee{
     background-color: #45a049;
     transform: scale(1.05);
 }
+
+.button-container {
+    display: flex;                
+    justify-content: space-around; 
+    align-items: center;          
+    margin: 10px 600px;
+}
+
+.btn {
+    padding: 10px 20px;          
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    background-color: #ff4444;
+    flex: 1;                     
+    margin: 0 10px;  
+    min-width: 100px; 
+    font-size: 14px;            
+}
