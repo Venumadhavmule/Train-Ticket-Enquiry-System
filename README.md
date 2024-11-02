@@ -1,6 +1,12 @@
-# Train Ticket Inquiry System
+# 🚂Train Ticket Inquiry System🚂
 
 This project, **Train-Ticket-Enquiry-System**, is designed using the **MVC (Model-View-Controller)** architecture. It simulates a real-world train booking application, utilizing **Hibernate ORM** for database management, **Servlets** and **JSP** for request handling, and various other technologies for a seamless user experience.
+## Screenshots
+
+| **Login Page**         | **Add Train Page**      | **Fare Enquiry Page**   |
+|------------------------|-------------------------|--------------------------|
+| ![Login](src/Screenshots/Admin_Screenshots/AdminLogin.png) | ![Add Train](src/Screenshots/Admin_Screenshots/Add_Train.png) | ![Fare Enquiry](src/Screenshots/User_Screenshots/Fare_View.png) |
+
 
 ## Key Features
 - **MVC Architecture**: Clear separation between Model, View, and Controller layers.
