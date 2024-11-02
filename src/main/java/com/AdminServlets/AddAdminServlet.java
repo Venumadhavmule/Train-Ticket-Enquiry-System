@@ -1,6 +1,7 @@
 package com.AdminServlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import com.dao.AdminDao;
 import com.model.AdminBean;
@@ -16,6 +17,9 @@ public class AddAdminServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html");
+		
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
@@ -23,7 +27,14 @@ public class AddAdminServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		AdminBean admin = new AdminBean(name,phone,email,username,password);
-		AdminDao.saveAdmin(admin);
+		boolean result = AdminDao.saveAdmin(admin);
+		if(result) {
+			pw.print("<h2>Admin added successfully. you are redirecting to Home page..!</h2>");
+			response.setHeader("Refresh", "2; URL=AHome.jsp");
+		}else {
+			pw.print("<h2>Admin not added.. Try with unique username!..</h2>");
+			response.setHeader("Refresh", "2; URL=AAddAdmin.jsp");
+		}
 		
 	}
 

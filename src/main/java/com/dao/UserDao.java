@@ -91,7 +91,7 @@ public class UserDao {
 	        
 	        // Fetch the existing user based on username
 	        UserBean existingUser = session.createQuery("from UserBean where username = :username", UserBean.class)
-	                                       .setParameter("username", username)
+	                                       .setParameter("username", user.getUsername())
 	                                       .uniqueResult();
 	        
 	        if (existingUser != null) {
@@ -102,11 +102,11 @@ public class UserDao {
 	            existingUser.setPhone(user.getPhone());
 	            existingUser.setPassword(user.getPassword());
 	            //save the updated user
-	            session.save(existingUser);
+	            session.update(existingUser);
 	            result =true;
 	        } else {
 	            // Save new user
-	            session.save(existingUser);
+	            session.save(user);
 	        }
 
 	        transaction.commit();
