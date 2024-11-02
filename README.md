@@ -28,8 +28,8 @@ This project, **Train-Ticket-Enquiry-System**, is designed using the **MVC (Mode
 
 3. **Database Setup**:
    - Set up a MySQL database.
-   - Update the database configuration in the ![hibernate.cfg.xml](src/main/java/hibernate.cfg.xml) file. Replace `your_database_name` and `your_password` as needed:
-     
+   - Update the database configuration in the [`hibernate.cfg.xml`](src/main/java/hibernate.cfg.xml) file. Replace `your_database_name` and `your_password` as needed:
+
      ```xml
      <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/your_database_name</property>
      <property name="hibernate.connection.username">root</property>
