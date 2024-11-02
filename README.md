@@ -1,27 +1,50 @@
-### Train Ticket Inquiry System
+# Train Ticket Inquiry System
 
-This repository contains a comprehensive **Train Ticket Inquiry System** built using a variety of technologies to simulate a real-world booking application. The project follows the **MVC (Model-View-Controller)** architecture, with Servlets and JSP handling requests, and Hibernate ORM for database interactions.
+This project, **Train-Ticket-Enquiry-System**, is designed using the **MVC (Model-View-Controller)** architecture. It simulates a real-world train booking application, utilizing **Hibernate ORM** for database management, **Servlets** and **JSP** for request handling, and various other technologies for a seamless user experience.
 
-#### Key Features:
-- **MVC Architecture:** Structured to separate concerns between data (Model), UI (View), and control logic (Controller).
-- **JSP & Servlet Integration:** JSP pages handle the front-end user interface, while servlets manage the back-end business logic.
-- **Hibernate ORM:** Ensures seamless communication between the application and the **MySQL** database with object-relational mapping.
-- **MySQL Database:** Stores train schedules, availability, ticket booking data, and user information.
-- **CSS & HTML5:** Modern front-end styling and layout for a user-friendly interface.
-- **Maven POM:** Dependency management and build automation through Maven, ensuring smooth project setup in Eclipse.
-- **Eclipse IDE:** Development environment used to maintain and run the project.
-- **Advanced Java:** Leverages advanced Java concepts such as multi-threading, collections, and exception handling.
+## Key Features
+- **MVC Architecture**: Clear separation between Model, View, and Controller layers.
+- **JSP & Servlet Integration**: JSP for the UI, with servlets managing back-end logic.
+- **Hibernate ORM**: Maps Java objects to database tables, facilitating database interactions.
+- **MySQL Database**: Stores train schedules, booking data, and user info.
+- **HTML & CSS**: Modern, responsive interface design.
+- **Session Management**: User login sessions are managed securely.
+- **Maven**: Manages project dependencies and builds.
+- **Tomcat Server**: Deployed on Apache Tomcat for local development and testing.
 
-#### Prerequisites:
-- Java Development Kit (JDK) 8+
-- Apache Tomcat Server
-- MySQL Database
-- Maven
+## Prerequisites
+- **Java Development Kit (JDK)** 8 or above
+- **Apache Tomcat Server**
+- **MySQL Database**
+- **Maven**
 
-#### Installation Steps:
-1. Clone the repository.
-2. Import the project into **Eclipse**.
-3. Set up the **MySQL** database using the provided SQL scripts.
-4. Configure **Tomcat** in Eclipse.
-5. Build the project using **Maven**.
-6. Run the project and access the application through your local server.
+## Setup & Installation
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Venumadhavmule/Train-Ticket-Enquiry-System.git
+   ```
+2. **Import the Project**:
+   - Open **Eclipse** IDE and import the cloned project as a Maven project.
+
+3. **Database Setup**:
+   - Set up a MySQL database.
+   - Update the database configuration in the [`hibernate.cfg.xml`](src/main/java/hibernate.cfg.xml) file. Replace `your_database_name` and `your_password` as needed:
+
+     ```xml
+     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/your_database_name</property>
+     <property name="hibernate.connection.username">root</property>
+     <property name="hibernate.connection.password">your_password</property>
+     ```
+
+4. **Configure Tomcat in Eclipse**:
+   - Go to **Servers** in Eclipse, add a new **Apache Tomcat** server, and link your project to it.
+
+5. **Build the Project**:
+   - Right-click on the project, select **Run As** > **Maven Install**.
+
+6. **Run the Application**:
+   - Start the Tomcat server in Eclipse.
+   - Access the application at `http://localhost:8080/Train-Ticket-Enquiry-System`.
+
+## Usage
+After setting up, open the application in your browser. You can log in to start booking train tickets and exploring schedules.
